@@ -1,2 +1,2 @@
 # inventaire
-Individual Semester Project 
+Inventory Management System
