@@ -1,15 +1,16 @@
-package classes;
+package com.eafacheampong.inventaire.model;
 
+import com.eafacheampong.inventaire.InventaireApplication;
+import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
-import main.Main;
 
 import java.sql.*;
 
-import static controllers.ProductController.categories;
 
 public class Vendor {
     private SimpleStringProperty name;
     private SimpleStringProperty category;
+    private static SimpleListProperty<String> categories;
 
 
     public Vendor(String name, String category) {
@@ -43,7 +44,7 @@ public class Vendor {
                 int cat_ind = rs.getInt(3);
 
                 String category = categories.get(cat_ind);
-                Main.inventory.vendors.put(rs.getString(2), category);
+                InventaireApplication.inventory.vendors.put(rs.getString(2), category);
             }
 
             // close mysql db connection

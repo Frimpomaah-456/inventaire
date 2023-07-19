@@ -1,5 +1,6 @@
 package com.eafacheampong.inventaire;
 
+import com.eafacheampong.inventaire.main.Management;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,6 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class InventaireApplication extends Application {
+    public static Management inventory;
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(InventaireApplication.class.getResource("main.fxml"));
@@ -18,6 +20,7 @@ public class InventaireApplication extends Application {
     }
 
     public static void main(String[] args) {
+        inventory = new Management();
         launch();
     }
 }

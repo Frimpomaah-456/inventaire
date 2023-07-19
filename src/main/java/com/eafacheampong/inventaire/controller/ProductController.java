@@ -1,6 +1,7 @@
-package controllers;
+package com.eafacheampong.inventaire.controller;
 
-import classes.Product;
+import com.eafacheampong.inventaire.InventaireApplication;
+import com.eafacheampong.inventaire.model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,7 +18,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import main.Main;
 
 
 import java.io.IOException;
@@ -69,7 +69,7 @@ public class ProductController implements Initializable {
         // load data from data structures (queues, stacks and lists) for UI
         int response = Product.getProducts();
         System.out.println(response);
-        tableView.setItems(Main.inventory.dsToObservableList(0));
+        tableView.setItems(InventaireApplication.inventory.dsToObservableList(0));
 
         // Category list
         category_ds.put("Beverages", "Stacks");
@@ -122,7 +122,7 @@ public class ProductController implements Initializable {
         // clear combobox
 //        comboBoxType.valueProperty().set(null);
 
-        ObservableList<Product> products = Main.inventory.dsToObservableList(cat_id);
+        ObservableList<Product> products = InventaireApplication.inventory.dsToObservableList(cat_id);
         tableView.setItems(products);
     }
 
@@ -136,16 +136,16 @@ public class ProductController implements Initializable {
             if (selected == "Stacked") cat_id = 2;
             if (selected == "Queued") cat_id = 6;
             if (selected == "List") cat_id = 9;
-            Main.inventory.deleteProduct(cat_id);
+            InventaireApplication.inventory.deleteProduct(cat_id);
 
-            products = Main.inventory.dsToObservableList(selected);
+            products = InventaireApplication.inventory.dsToObservableList(selected);
         }
         else {
             selected = comboBox.getValue();
             cat_id = categories.indexOf(selected) + 1;
-            Main.inventory.deleteProduct(cat_id);
+            InventaireApplication.inventory.deleteProduct(cat_id);
 
-            products = Main.inventory.dsToObservableList(cat_id);
+            products = InventaireApplication.inventory.dsToObservableList(cat_id);
         }
 
 
@@ -160,7 +160,7 @@ public class ProductController implements Initializable {
         // clear combobox
         comboBox.valueProperty().set(null);
 
-        ObservableList<Product> products = Main.inventory.dsToObservableList(selected);
+        ObservableList<Product> products = InventaireApplication.inventory.dsToObservableList(selected);
         tableView.setItems(products);
     }
 }

@@ -1,4 +1,4 @@
-package classes;
+package com.eafacheampong.inventaire.model;
 
 public class Sale {
     public int id;

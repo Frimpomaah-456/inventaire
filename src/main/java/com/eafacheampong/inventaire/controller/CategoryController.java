@@ -1,7 +1,6 @@
-package controllers;
+package com.eafacheampong.inventaire.controller;
 
-import classes.Category;
-import classes.Product;
+import com.eafacheampong.inventaire.model.Category;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class CategoryController implements Initializable {
@@ -78,10 +78,10 @@ public class CategoryController implements Initializable {
 //        }
 //    }
 
-    public void openProdcutsClicked(ActionEvent actionEvent) throws IOException {
+    public void openProductsClicked(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
 
-        Parent root = FXMLLoader.load(getClass().getResource("../fxml/products.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../fxml/products.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -90,7 +90,7 @@ public class CategoryController implements Initializable {
     public void addCategory(MouseEvent mouseEvent) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("../fxml/addcategory.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../fxml/addcategory.fxml")));
             Stage stage = new Stage();
             stage.setTitle("My New Stage Title");
             stage.setScene(new Scene(root));

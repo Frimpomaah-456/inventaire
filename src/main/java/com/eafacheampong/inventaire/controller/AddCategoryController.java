@@ -1,7 +1,6 @@
-package controllers;
+package com.eafacheampong.inventaire.controller;
 
-import classes.Category;
-import classes.Product;
+import com.eafacheampong.inventaire.model.Category;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;

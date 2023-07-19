@@ -1,9 +1,9 @@
-package classes;
+package com.eafacheampong.inventaire.model;
 
+import com.eafacheampong.inventaire.InventaireApplication;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
-import main.Main;
 
 import java.sql.*;
 
@@ -78,7 +78,7 @@ public class Product {
                 Product prod = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getFloat(4), rs.getFloat(5), rs.getFloat(6), cat_id);
 
                 // add to data structure
-                Main.inventory.addProduct(prod);
+                InventaireApplication.inventory.addProduct(prod);
             }
 
             // close mysql db connection

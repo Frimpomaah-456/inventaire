@@ -1,6 +1,6 @@
-package controllers;
+package com.eafacheampong.inventaire.controller;
 
-import classes.Product;
+import com.eafacheampong.inventaire.model.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;

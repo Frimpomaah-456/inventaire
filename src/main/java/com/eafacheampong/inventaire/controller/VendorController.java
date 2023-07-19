@@ -1,6 +1,7 @@
-package controllers;
+package com.eafacheampong.inventaire.controller;
 
-import classes.Vendor;
+import com.eafacheampong.inventaire.InventaireApplication;
+import com.eafacheampong.inventaire.model.Vendor;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,7 +15,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import main.Main;
 
 
 import java.io.IOException;
@@ -27,8 +27,8 @@ public class VendorController implements Initializable {
     @FXML private TableColumn<Vendor, String> categoryColumn;
 
     // hashmap data structure for vendor information
-    int reponse = Vendor.getVendors();
-    HashMap<String, String> vendors = Main.inventory.vendors;
+    int response = Vendor.getVendors();
+    HashMap<String, String> vendors = InventaireApplication.inventory.vendors;
 
     // List of vendors
     ObservableList<Vendor> vendor_list = FXCollections.observableArrayList();
@@ -54,7 +54,7 @@ public class VendorController implements Initializable {
     public void openCategoryClicked(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
 
-        Parent root = FXMLLoader.load(getClass().getResource("../fxml/categories.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../fxml/categories.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -63,7 +63,7 @@ public class VendorController implements Initializable {
     public void openProductClicked(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
 
-        Parent root = FXMLLoader.load(getClass().getResource("../fxml/products.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../fxml/products.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
