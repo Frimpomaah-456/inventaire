@@ -1,3 +1,0 @@
-# inventaire
-
-Inventory Management System

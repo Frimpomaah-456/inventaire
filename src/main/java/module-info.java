@@ -1,16 +1,20 @@
-module com.eafacheampong.inventaire {
+ module com.example.netmart {
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.web;
+    requires de.jensd.fx.glyphs.fontawesome;
     requires java.sql;
+    requires org.xerial.sqlitejdbc;
+    requires mysql.connector.java;
+    requires java.desktop;
+    requires com.google.gson;
 
-    requires org.controlsfx.controls;
-    requires com.dlsc.formsfx;
-    requires validatorfx;
-    requires org.kordamp.ikonli.javafx;
-    requires org.kordamp.bootstrapfx.core;
-    requires eu.hansolo.tilesfx;
 
-    opens com.eafacheampong.inventaire to javafx.fxml;
-    exports com.eafacheampong.inventaire;
+    opens com.example.netmart to javafx.fxml;
+    exports com.example.netmart;
+    exports com.example.netmart.Controllers;
+    exports com.example.netmart.Controllers.Admin;
+    exports com.example.netmart.Controllers.Client;
+    exports com.example.netmart.Models;
+    exports com.example.netmart.Views;
+    opens com.example.netmart.Controllers to javafx.fxml;
 }
